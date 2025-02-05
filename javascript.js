@@ -1,7 +1,7 @@
 // container element selection and formating //
 const container = document.querySelector("#container");
-container.style.backgroundColor = "gray";
-container.style.outline = "2px solid black";
+container.style.backgroundColor = "white";
+// container.style.outline = "1px solid gray";
 container.style.display = "flex";
 container.style.flexWrap = "wrap";
 container.style.alignContent = "flex-start";
@@ -38,20 +38,22 @@ buttonContainer.style.margin = "20px"
 // Control buttons creation //
 const sizeButton = document.createElement("button");
 buttonContainer.appendChild(sizeButton);
-sizeButton.textContent = "Change Grid Size";
+sizeButton.textContent = "1. Choose Grid Size";
+sizeButton.style.margin = "10px";
 var userInput = 0;
 sizeButton.addEventListener("click", () =>
-  userInput = prompt("Insert the grid size (16 or 64):")
+  userInput = prompt("Insert the grid size:")
   );
 
 // Button to test gridAssembly //
-const testButton = document.createElement("button");
-testButton.addEventListener("click", () => gridAssembly16());
-buttonContainer.appendChild(testButton);
-testButton.textContent = "Generate Grid";
+const generateButton = document.createElement("button");
+generateButton.addEventListener("click", () => gridAssembly());
+buttonContainer.appendChild(generateButton);
+generateButton.textContent = "2. Generate Grid";
+generateButton.style.margin = "10px";
 
 
-function gridAssembly16() {
+function gridAssembly() {
   container.replaceChildren();
   for (let i = 0; i < userInput; i++) {
     for (let j = 0; j < userInput; j++) {
@@ -68,42 +70,3 @@ function gridAssembly16() {
     }
   }
 }
-
-// Divs creation 16x16 //
-// function gridAssembly16() {
-//   container.replaceChildren();
-//   for (let i = 0; i < 16; i++) {
-//     for (let j = 0; j < 16; j++) {
-//       const div = document.createElement("div");
-//       div.style.backgroundColor = "white";
-//       div.style.height = "51.875px";
-//       div.style.width = "51.875px";
-//       div.style.border = "1px solid black";
-//       div.style.boxSizing = "border-box";
-//       div.addEventListener(
-//         "mouseenter", () => (div.style.backgroundColor = "gray"),
-//       );
-//       container.appendChild(div);
-//     }
-//   }
-// }
-
-// Divs creation 64x64 //
-// function gridAssembly64() {
-//   for (let i = 0; i < 64; i++) {
-//     for (let j = 0; j < 64; j++) {
-//       const div = document.createElement("div");
-//       div.style.height = "12.96875px";
-//       div.style.width = "12.96875px";
-//       div.style.backgroundColor = "white";
-//       div.style.border = "1px solid black";
-//       div.style.boxSizing = "border-box";
-//       div.addEventListener(
-//         "mouseenter", () => (div.style.backgroundColor = "gray"),
-//       );
-//       container.appendChild(div);
-//     }
-//   }
-// }
-
-// Hover effect on grids //
