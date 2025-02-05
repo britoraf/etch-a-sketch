@@ -48,18 +48,18 @@ sizeButton.addEventListener("click", () =>
 const testButton = document.createElement("button");
 testButton.addEventListener("click", () => gridAssembly16());
 buttonContainer.appendChild(testButton);
-testButton.textContent = "gridAssembly16";
+testButton.textContent = "Generate Grid";
 
 
-// Divs creation 16x16 //
 function gridAssembly16() {
-  for (let i = 0; i < 16; i++) {
-    for (let j = 0; j < 16; j++) {
+  container.replaceChildren();
+  for (let i = 0; i < userInput; i++) {
+    for (let j = 0; j < userInput; j++) {
       const div = document.createElement("div");
       div.style.backgroundColor = "white";
-      div.style.height = "51.875px";
-      div.style.width = "51.875px";
-      div.style.border = "1px solid black";
+      div.style.height = String(830/userInput+"px");
+      div.style.width = String(830/userInput+"px");
+      div.style.border = "1px solid gray";
       div.style.boxSizing = "border-box";
       div.addEventListener(
         "mouseenter", () => (div.style.backgroundColor = "gray"),
@@ -68,6 +68,25 @@ function gridAssembly16() {
     }
   }
 }
+
+// Divs creation 16x16 //
+// function gridAssembly16() {
+//   container.replaceChildren();
+//   for (let i = 0; i < 16; i++) {
+//     for (let j = 0; j < 16; j++) {
+//       const div = document.createElement("div");
+//       div.style.backgroundColor = "white";
+//       div.style.height = "51.875px";
+//       div.style.width = "51.875px";
+//       div.style.border = "1px solid black";
+//       div.style.boxSizing = "border-box";
+//       div.addEventListener(
+//         "mouseenter", () => (div.style.backgroundColor = "gray"),
+//       );
+//       container.appendChild(div);
+//     }
+//   }
+// }
 
 // Divs creation 64x64 //
 // function gridAssembly64() {
